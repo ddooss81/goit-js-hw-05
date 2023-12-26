@@ -1,28 +1,32 @@
 'use strict';
 
-function filterArray(numbers, value) {
-    let finalArray = [];
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > value) {
-            finalArray.push(numbers[i]);
-        }
-    }
-    return finalArray;
+// function deliverPizza(pizzaName) {
+//   return `Delivering ${pizzaName} pizza.`;
+// }
+
+// function makePizza(pizzaName) {
+//   return `Pizza ${pizzaName} is being prepared, please wait...`;
+// }
+
+// function makeMessage(pizzaName, callBack) {
+  
+//     return callBack(pizzaName);
+// }
+
+// console.log(makeMessage("Royal Grand", makePizza));
+// console.log(makeMessage("Ultracheese", deliverPizza));
+
+function makePizza(pizzaName, callback) {
+  console.log(`Pizza ${pizzaName} is being prepared, please wait...`);
+  callback(pizzaName);
 }
 
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+makePizza("Royal Grand", function deliverPizza(pizzaName) {
+  console.log(`Delivering pizza ${pizzaName}`);
+});
 
-function filterArray(numbers, value) {
-  const filteredArray = numbers.filter((element) => element > value);
-  return filteredArray;
-}
-
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+makePizza("Ultracheese", function deliverPizza(pizzaName) {
+  console.log(`Delivering pizza ${pizzaName}`);
+});
+makePizza("Royal Grand");
+makePizza("Ultracheese");
